@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Примеры использования - Мой Холодильник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">
+            <i class="fas fa-code"></i>
+            Примеры использования JavaScript функций
+        </h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Добавление продуктов</h3>
+                    </div>
+                    <div class="card-body">
+                        <h5>Добавить продукт в дверцу холодильника:</h5>
+                        <pre><code>addProduct('fridge-door-items', {
+    name: 'Молоко',
+    quantity: '1 л',
+    icon: 'fas fa-wine-bottle'
+});</code></pre>
+                        
+                        <h5>Добавить продукт в заморозку:</h5>
+                        <pre><code>addProduct('fridge-freezer-items', {
+    name: 'Свинина',
+    quantity: '2 кг',
+    icon: 'fas fa-drumstick-bite'
+});</code></pre>
+                        
+                        <h5>Добавить продукт на верхнюю полку шкафа:</h5>
+                        <pre><code>addProduct('cabinet-top-items', {
+    name: 'Чай',
+    quantity: '100 г',
+    icon: 'fas fa-coffee'
+});</code></pre>
+                        
+                        <h5>Добавить лекарство в 1 аптечку:</h5>
+                        <pre><code>addProduct('pharmacy-kit1-items', {
+    name: 'Аспирин',
+    quantity: '30 таблеток',
+    icon: 'fas fa-pills'
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Управление данными</h3>
+                    </div>
+                    <div class="card-body">
+                        <h5>Обновить дату:</h5>
+                        <pre><code>updateLastUpdated('20.12.2024');</code></pre>
+                        
+                        <h5>Поиск продуктов:</h5>
+                        <pre><code>searchProducts('молоко');</code></pre>
+                        
+                        <h5>Очистить поиск:</h5>
+                        <pre><code>clearSearch();</code></pre>
+                        
+                        <h5>Экспорт данных:</h5>
+                        <pre><code>exportData();</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Доступные иконки продуктов</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Напитки и соусы:</h5>
+                                <ul>
+                                    <li><i class="fas fa-wine-bottle"></i> fas fa-wine-bottle</li>
+                                    <li><i class="fas fa-coffee"></i> fas fa-coffee</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Мясо и рыба:</h5>
+                                <ul>
+                                    <li><i class="fas fa-drumstick-bite"></i> fas fa-drumstick-bite</li>
+                                    <li><i class="fas fa-fish"></i> fas fa-fish</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Сладости:</h5>
+                                <ul>
+                                    <li><i class="fas fa-ice-cream"></i> fas fa-ice-cream</li>
+                                    <li><i class="fas fa-cookie-bite"></i> fas fa-cookie-bite</li>
+                                    <li><i class="fas fa-candy-cane"></i> fas fa-candy-cane</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Крупы и овощи:</h5>
+                                <ul>
+                                    <li><i class="fas fa-seedling"></i> fas fa-seedling</li>
+                                    <li><i class="fas fa-carrot"></i> fas fa-carrot</li>
+                                    <li><i class="fas fa-bread-slice"></i> fas fa-bread-slice</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Аптека:</h5>
+                                <ul>
+                                    <li><i class="fas fa-pills"></i> fas fa-pills</li>
+                                    <li><i class="fas fa-first-aid"></i> fas fa-first-aid</li>
+                                    <li><i class="fas fa-band-aid"></i> fas fa-band-aid</li>
+                                    <li><i class="fas fa-tint"></i> fas fa-tint</li>
+                                    <li><i class="fas fa-thermometer-half"></i> fas fa-thermometer-half</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="index.html" class="btn btn-primary btn-lg">
+                <i class="fas fa-home"></i>
+                Вернуться к главной странице
+            </a>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Холодильник - Учет Продуктов</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="header-title">
+                        <i class="fas fa-home"></i>
+                        Моя еда МЯУ
+                    </h1>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="last-updated">
+                        <i class="fas fa-clock"></i>
+                        Обновлено: <span id="lastUpdated">13.08.2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#fridge" data-section="fridge">
+                            <i class="fas fa-snowflake"></i> Холодильник
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cabinet" data-section="cabinet">
+                            <i class="fas fa-door-closed"></i> Шкаф
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pharmacy" data-section="pharmacy">
+                            <i class="fas fa-pills"></i> Аптека
+                        </a>
+                    </li>
+                </ul>
+                <!-- Search Bar -->
+                <div class="navbar-nav ms-auto">
+                    <div class="nav-item">
+                        <div class="search-container">
+                            <input type="text" id="searchInput" class="form-control search-input" placeholder="Поиск продуктов...">
+                            <button id="searchBtn" class="btn btn-outline-light search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <button id="clearSearchBtn" class="btn btn-outline-light clear-search-btn" style="display: none;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Fridge Section -->
+            <section id="fridge" class="content-section active">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title">
+                            <i class="fas fa-snowflake"></i>
+                            Холодильник
+                        </h2>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- Door Section -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-door-open"></i>
+                                    Дверца
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество</th>
+                                                <th>Срок годности</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="fridge-door-items">
+                                            <tr>
+                                                <td><i class="fas fa-wine-bottle"></i> Кетчуп</td>
+                                                <td>1 шт</td>
+                                                <td>12.01.2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-wine-bottle"></i> Майонез</td>
+                                                <td>1 шт</td>
+                                                <td>20.01.2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-wine-bottle"></i> Горчица</td>
+                                                <td>1 шт</td>
+                                                <td>15.02.2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-wine-bottle"></i> Сок апельсиновый</td>
+                                                <td>2 л</td>
+                                                <td>25.12.2024</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Freezer Section -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-icicles"></i>
+                                    Заморозка
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество</th>
+                                                <th>Срок годности</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="fridge-freezer-items">
+                                            <tr>
+                                                <td><i class="fas fa-drumstick-bite"></i> Куриное филе</td>
+                                                <td>1 кг</td>
+                                                <td>15.03.2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-fish"></i> Рыба</td>
+                                                <td>500 г</td>
+                                                <td>10.02.2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-ice-cream"></i> Мороженое</td>
+                                                <td>1 кг</td>
+                                                <td>01.06.2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-carrot"></i> Овощи замороженные</td>
+                                                <td>800 г</td>
+                                                <td>20.08.2025</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cabinet Section -->
+            <section id="cabinet" class="content-section">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title">
+                            <i class="fas fa-door-closed"></i>
+                            Шкаф
+                        </h2>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- Top Shelf -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-arrow-up"></i>
+                                    Верхняя полка
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="cabinet-top-items">
+                                            <tr>
+                                                <td><i class="fas fa-bread-slice"></i> Хлеб</td>
+                                                <td>1 шт</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-cookie-bite"></i> Печенье</td>
+                                                <td>2 пачки</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-candy-cane"></i> Конфеты</td>
+                                                <td>1 коробка</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-coffee"></i> Кофе</td>
+                                                <td>500 г</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Shelf -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-arrow-down"></i>
+                                    Нижняя полка
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="cabinet-bottom-items">
+                                            <tr>
+                                                <td><i class="fas fa-seedling"></i> Макароны</td>
+                                                <td>2 пачки</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-seedling"></i> Рис</td>
+                                                <td>1 кг</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-seedling"></i> Гречка</td>
+                                                <td>500 г</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-seedling"></i> Мука</td>
+                                                <td>1 кг</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pharmacy Section -->
+            <section id="pharmacy" class="content-section">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title">
+                            <i class="fas fa-pills"></i>
+                            Аптека
+                        </h2>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- First Aid Kit 1 -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-first-aid"></i>
+                                    1 Аптечка
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Для чего</th>
+                                                <th>Количество</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="pharmacy-kit1-items">
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Парацетамол</td>
+                                                <td>От температуры и боли</td>
+                                                <td>20 таблеток</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Ибупрофен</td>
+                                                <td>Противовоспалительное</td>
+                                                <td>15 таблеток</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-band-aid"></i> Пластырь</td>
+                                                <td>Для ран</td>
+                                                <td>10 штук</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- First Aid Kit 2 -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-first-aid"></i>
+                                    2 Аптечка
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Для чего</th>
+                                                <th>Количество</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="pharmacy-kit2-items">
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Аспирин</td>
+                                                <td>От головной боли</td>
+                                                <td>30 таблеток</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-tint"></i> Перекись водорода</td>
+                                                <td>Обработка ран</td>
+                                                <td>1 флакон</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-thermometer-half"></i> Градусник</td>
+                                                <td>Измерение температуры</td>
+                                                <td>1 штука</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- First Aid Kit 3 -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-first-aid"></i>
+                                    3 Аптечка
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Для чего</th>
+                                                <th>Количество</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="pharmacy-kit3-items">
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Активированный уголь</td>
+                                                <td>При отравлении</td>
+                                                <td>50 таблеток</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Но-шпа</td>
+                                                <td>От спазмов</td>
+                                                <td>20 таблеток</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Валидол</td>
+                                                <td>Для сердца</td>
+                                                <td>10 таблеток</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- First Aid Kit 4 -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-first-aid"></i>
+                                    4 Аптечка
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Для чего</th>
+                                                <th>Количество</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="pharmacy-kit4-items">
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Витамин C</td>
+                                                <td>Иммунитет</td>
+                                                <td>100 таблеток</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Магний B6</td>
+                                                <td>Нервная система</td>
+                                                <td>30 таблеток</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-pills"></i> Омега-3</td>
+                                                <td>Сердечно-сосудистая система</td>
+                                                <td>60 капсул</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2025 Мой Холодильник. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
